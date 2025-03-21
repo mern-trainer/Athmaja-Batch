@@ -1,7 +1,7 @@
 1. Create a function to find the maximum number from four given numbers.
 2. Implement a calculation function that performs addition, subtraction, multiplication, and division.
 3. Develop a function that accepts an amount and percentage and returns the discount amount.
-4. Calculate the sum of n numbers using a for loop.
+4. Find the factorial of n numbers using a for loop.
 5. Determine if a given number is even or odd using a for loop and while loop.
 6. Create a program to find the day of the week using switch case.
 7. Create a program to find the month of the year using switch case.
