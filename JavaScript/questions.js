@@ -77,8 +77,6 @@ console.log(text.split(" "));
 // 89xxxxxx27
 // vis****@gmail.com
 
-// 1. 
-
 function hideNumber(number = 0){
     const strNumber = number.toString()
     const initialNumbers = strNumber.slice(0, 2)
@@ -119,7 +117,23 @@ const hideMail = username + "@" + emailArray[1]
 
 console.log(hideMail);
 
+// Object -> Collection of key value pairs
 
+// const a = {
+//     name: "John",
+//     age: 20,
+//     address: {
+//         city: "New York",
+//         state: "NY",
+//         pin_code: 10001
+//     }
+// }
+
+// a.address.city = "Mumbai"
+// a.address.pin_code = 400001
+// a.age = 100
+
+// console.log(a);
 
 
 
