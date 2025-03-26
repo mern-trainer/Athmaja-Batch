@@ -72,3 +72,21 @@ const elements = document.querySelectorAll("h2") // .className / #idName / tagNa
 
 // ---------------------------------------------------------------------------------------------
 
+function handleClick() {
+    const color = document.body.style.backgroundColor
+    document.body.style.color = "black"
+    if (color == "") {
+        document.body.style.color = "white"
+        document.body.style.backgroundColor = "red"
+    } else if (color == "red") {
+        document.body.style.color = "white"
+        document.body.style.backgroundColor = "green"
+    } else if (color == "green") {
+        document.body.style.color = "white"
+        document.body.style.backgroundColor = "blue"
+    } else {
+        document.body.style.color = "black"
+        document.body.style.backgroundColor = ""
+    }
+}
+
