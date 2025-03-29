@@ -1,2 +1,2 @@
-1. Design a web page with Home, About and Contact navigation links. 
-    a. Depending on the clicked navigation link, render the corresponding element.
+1. Create a website with Home, About, Contact Navigations. 
+    a. Render element with respect to the selected navigation or clicked navigation.
