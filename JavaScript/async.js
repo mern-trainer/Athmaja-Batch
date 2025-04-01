@@ -13,6 +13,8 @@ const p = new Promise((resolve, reject) => {
     }, 3000);
 })
 
+// any, race, all
+
 // console.log(p);
 
 // p.then((response) => {
