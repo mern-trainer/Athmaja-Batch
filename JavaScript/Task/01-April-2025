@@ -1,6 +1,6 @@
 1. Fetch data from API using fetch method
     A. https://jsonplaceholder.typicode.com/posts
     B. https://jsonplaceholder.typicode.com/users
-2. Create a table of users contain id, name, username, website, phone. (HTML, CSS, JS)
+2. Create a joke generator using https://v2.jokeapi.dev/joke/Any (HTML, CSS, JS)
+3. Create a table of users contain id, name, username, website, phone. (HTML, CSS, JS)
     A. Get user info from https://jsonplaceholder.typicode.com/users
-3. Create a joke generator using https://v2.jokeapi.dev/joke/Any (HTML, CSS, JS)
