@@ -4,6 +4,11 @@ const getJoke = async () => {
         const result = await res.json()
         const setup = result.setup
         const delivery = result.delivery
+        const joke = result.joke
+        if (joke) {
+            setup = result.joke
+            delivery = ""
+        }
         const setupElement = document.getElementById("setup")
         const deliveryElement = document.getElementById("delivery")
         setupElement.innerHTML = setup
