@@ -171,3 +171,39 @@ console.log(response.decrement());
 console.log(response.decrement());
 console.log(response.reset());
 console.log(response.increment());
+
+// Hoisting
+b = "Hi"
+
+console.log(b);
+
+// var a;
+
+// js -> working => 2 phase -> memory phase, execution phase
+
+// curring
+
+// const volume = (l, b, h) => {
+//     return l * b * h
+// }
+
+const volume = (l) => {
+    return (b) => {
+        return (h) => {
+            return l * b * h
+        }
+    }
+}
+
+// const res = volume(10)(20)(30)
+
+// or
+
+const func1 = volume(10)
+
+const func2 = func1(20)
+
+const result1 = func2(30)
+
+console.log(result1);
+// console.log(re);
