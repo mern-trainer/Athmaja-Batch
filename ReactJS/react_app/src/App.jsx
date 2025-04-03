@@ -1,4 +1,5 @@
 import React from "react"
+import PasswordGenerator from "./Pages/PasswordGenerator";
 
 const App = () => {
 
@@ -20,6 +21,8 @@ const App = () => {
         <button onClick={() => {
             handleClick("button clicked")
         }}>Click Here</button>
+
+        <PasswordGenerator />
     </React.Fragment>
 }
 
