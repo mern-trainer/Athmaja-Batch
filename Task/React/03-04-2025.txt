@@ -1,0 +1,5 @@
+1. Create 3 buttons for counter.
+    Buttons: Increment, Decrement, Reset
+    a. By clicking on increment button, counter should be increased by 1.
+    b. By clicking on decrement button, counter should be decreased by 1.
+    c. By clicking on reset button, counter should be reset to 0.
