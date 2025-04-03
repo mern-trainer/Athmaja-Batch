@@ -1,0 +1,38 @@
+REACTJS -> Javascript Library
+
+HTML, JS, CSS -> Website -> Multiple Pages
+Load 
+Javascript -> Direct DOM Manipulation
+
+ReactJS -> Single Page Application
+
+ReactJS Library -> JS
+
+library -> Supporting Tools. 
+Framework -> Provides Structure.
+
+Framework -> Dev Tools, Testin Tools, Deployment Tools, Complete Development Cycle.
+
+FEATURES
+
+1. Virtual DOM -> In memory storage of DOM. -> Lightweight copy actual DOM.
+2. App.jsx -> HTML like syntax.
+3. Re-useable Components. -> Component Based Architecture.
+4. Performance Optimization.
+5. One-Way Data Binding. or One way data flow.
+
+-> Functional Components, Class Components
+    const app = () => {
+        return 10
+    }
+
+requirements -> NodeJS -> Javascript Runtime Environment., 
+NPM -> Node Package Manager
+
+// Package -> react, react-dom
+
+-> react -> Elements create
+-> react-dom -> Elements render
+
+-> Reconcilation -> Syncing changes to the actual DOM. -> react-dom -> Virtual DOM.
+
