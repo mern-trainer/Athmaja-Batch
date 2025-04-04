@@ -11,6 +11,9 @@ const PasswordGenerator = () => {
         <h1>Password Generator</h1>
         <div id='password'></div>  
         <button onClick={generatePassword}>Generate</button>
+        <div>
+            <button>Increment</button>
+        </div>
     </div>
 }
 

@@ -1,29 +1,33 @@
-import React from "react"
-import PasswordGenerator from "./Pages/PasswordGenerator";
+// import { Fragment } from "react"
+// import PasswordGenerator from "./Pages/PasswordGenerator";
 
-const App = () => {
+import { Fragment } from "react"
+import HomePage from "./Pages/HomePage"
 
-    const number = 1000
+export const App = () => { // named export
 
-    const handleClick = (text) => {
-        console.log(text);
-    }
+    // const handleClick = (text) => {
+    //     console.log(text);
+    // }
 
-    return <React.Fragment>
-        <div>
-            <h1>Hi</h1>
-            <p>Hello</p>
-        </div>
-        <div>Age is: {number}</div>
-        <div>
-            <h3>Hello</h3>
-        </div>
-        <button onClick={() => {
-            handleClick("button clicked")
-        }}>Click Here</button>
+    // return <Fragment>
+    //     <div>
+    //         <h1>Hi</h1>
+    //         <p>Hello</p>
+    //     </div>
+    //     <div>Age is: {number}</div>
+    //     <div>
+    //         <h3>Hello</h3>
+    //     </div>
+    //     <button onClick={() => {
+    //         handleClick("button clicked")
+    //     }}>Click Here</button>
 
-        <PasswordGenerator />
-    </React.Fragment>
+    //     <PasswordGenerator />
+    // </Fragment>
+    return <Fragment>
+        <HomePage />
+    </Fragment>
 }
 
-export default App
+// export default App // default export
