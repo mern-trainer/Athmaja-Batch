@@ -1,3 +1,5 @@
+import "../Styles/Header.css"
+
 // const Header = () => { // inline styling method
 //     return <div style={{
 //         display: "flex",

@@ -1,0 +1,14 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    height: 60px;
+    background-color: lightblue;
+    padding-inline: 20px;
+}
+
+.navbar ul{
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
