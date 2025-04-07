@@ -1,49 +1,20 @@
-import "../Styles/Header.css"
+import { Container, Image, Nav, Navbar, NavDropdown } from "react-bootstrap"
 
-// const Header = () => { // inline styling method
-//     return <div style={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         alignItems: "center",
-//         paddingInline: "2rem",
-//         backgroundColor: "lightblue"
-//     }}>
-//         <div>Header Logo</div>
-//         <div>
-//             <ul style={{
-//                 display: "flex",
-//                 gap: "3rem",
-//                 listStyle: "none"
-//             }}>
-//                 <li>HOME</li>
-//                 <li>ABOUT</li>
-//                 <li>BLOG</li>
-//                 <li>CONTACT</li>
-//             </ul>
-//         </div>
-//         <div>
-//             <button>CONNECT ME</button>
-//         </div>
-//     </div>
-// }
-
-// export default Header
-
-const Header = () => { // external styling method
-    return <div className="navbar">
-        <div>Header Logo</div>
-        <div>
-            <ul>
-                <li>HOME</li>
-                <li>ABOUT</li>
-                <li>BLOG</li>
-                <li>CONTACT</li>
-            </ul>
-        </div>
-        <div>
-            <button>CONNECT ME</button>
-        </div>
-    </div>
+export const Header = () => {
+    return <Navbar expand="md" bg="light" className="navbar-light">
+        <Container fluid>
+            <Navbar.Brand>
+                <Image src="./logo.png" alt="website logo" height={40}/>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <Nav.Link href="#home" className="active">Home</Nav.Link>
+                    <Nav.Link href="#link">Blog</Nav.Link>
+                    <Nav.Link href="#link">About Us</Nav.Link>
+                    <Nav.Link href="#link">Contact Us</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+        </Container>
+    </Navbar>
 }
-
-export default Header
