@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { FaTrash } from "react-icons/fa";
+import { FaCheck, FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { v4 as uuidv4 } from "uuid"
 
 const App = () => {
 
@@ -12,10 +13,19 @@ const App = () => {
         if (todo == "") {
             return toast.error("Task is required");
         }
-        if (todos.includes(todo)) {
+        const taskIndex = todos.findIndex((item) => item.task.toLowerCase() == todo.toLowerCase())
+        if (taskIndex > -1) {
             return toast.error("Task already exists");
         }
-        setTodos([todo, ...todos])
+        const date_time = new Date()
+        const taskObj = {
+            id: uuidv4(),
+            task: todo,
+            is_completed: false,
+            created_at: date_time.toISOString(),
+            updated_at: date_time.toISOString()
+        }
+        setTodos([taskObj, ...todos])
         setTodo("")
     }
 
@@ -23,9 +33,22 @@ const App = () => {
         setTodo(e.target.value)
     }
 
-    const handleDelete = (idx) => { // idx means index
-        const newTodos = todos.filter((_, index) => index != idx)
+    const handleDelete = (id) => { 
+        const newTodos = todos.filter((item) => item.id != id)
         setTodos(newTodos)
+    }
+
+    const handleCompleted = (task) => {
+        if (!task.is_completed) {
+            const res = todos.map((item) => {
+                if (item.id == task.id) {
+                    const date_time = new Date()
+                    return {...item, updated_at: date_time.toISOString(), is_completed: true}
+                }
+                return item
+            })
+            setTodos(res)
+        }
     }
 
     return <div className="px-2 d-flex justify-content-center">
@@ -36,11 +59,17 @@ const App = () => {
             </form>
             <div className="w-100 mt-2 d-flex flex-column gap-2">
                 {
-                    todos.map((item, index) => {
-                        return <div key={item} className="w-100 d-flex p-2 border border-2 border-secondary text-dark">
-                            <div className="w-100">{item}</div>
-                            <div>
-                                <button onClick={() => handleDelete(index)} className="btn btn-sm text-danger"><FaTrash /></button>
+                    todos.map((item) => {
+                        return <div key={item.id} className="w-100 d-flex p-2 border border-2 border-secondary text-dark">
+                            <div className="w-100">
+                                <h3>{item.task}</h3>
+                                <p>Completed: {item.is_completed ? "Completed" : "Pending"}</p>
+                            </div>
+                            <div className="d-flex gap-1 align-items-center">
+                                <button onClick={() => handleDelete(item.id)} className="btn btn-sm text-danger"><FaTrash /></button>
+                                {
+                                    !item.is_completed && <button onClick={() => handleCompleted(item)} className="btn btn-sm text-success"><FaCheck /></button>
+                                }
                             </div>
                         </div>
                     })
