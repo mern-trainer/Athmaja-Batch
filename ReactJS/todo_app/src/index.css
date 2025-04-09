@@ -1,0 +1,7 @@
+body{
+    font-family: "Tomorrow", sans-serif;
+}
+
+.outline-none{
+    outline: none !important;
+}
