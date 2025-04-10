@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { FaCheck, FaTrash } from "react-icons/fa";
+import { FaCheck, FaEye, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid"
-import Header from "../components/Header";
 
 const TodoPage = () => {
 
     const [todo, setTodo] = useState("")
     const [todos, setTodos] = useState([])
+    const redirect = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -53,7 +54,6 @@ const TodoPage = () => {
     }
 
     return <div className="px-2 d-flex justify-content-center">
-        <Header />
         <div className="w-100 mt-3" style={{maxWidth: "500px"}}>
             <form onSubmit={handleSubmit} className="w-100">
                 <input type="text" value={todo} onChange={handleChange} name="todo" placeholder="Eg: Buy groceries" className="w-100 p-2 border border-2 border-secondary outline-none"/>
@@ -72,6 +72,7 @@ const TodoPage = () => {
                                 {
                                     !item.is_completed && <button onClick={() => handleCompleted(item)} className="btn btn-sm text-success"><FaCheck /></button>
                                 }
+                                <button onClick={() => redirect("/todo/view", {state: item})} className="btn btn-sm text-info"><FaEye /></button>
                             </div>
                         </div>
                     })
