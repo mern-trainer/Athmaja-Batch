@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import DynamicRoute from "./pages/DynamicRoute"
 import SingleTodo from "./pages/SingleTodo"
 import ParentComponent from "./pages/ParentComponent"
+import ProductListing from "./pages/ProductListing"
 
 //props -> Attributes -> Properties
 
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="" Component={TodoPage} />
                     <Route path="view" Component={SingleTodo} />
                 </Route>
+                <Route path="products" Component={ProductListing} />
                 <Route path="/props" Component={ParentComponent} />
             </Route>
             <Route path="*" element={<div><Header /><h1>404 | Page Not Found</h1></div>} />
