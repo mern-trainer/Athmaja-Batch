@@ -1,10 +1,11 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
 import Router from "./Routes"
 
 export const SampleContext = createContext()
 
 const App = () => {
-    return <SampleContext.Provider value="Hi">
+    const [counter, setCounter] = useState(0)
+    return <SampleContext.Provider value={{counter, setCounter}}>
         <Router />
     </SampleContext.Provider>
 }
