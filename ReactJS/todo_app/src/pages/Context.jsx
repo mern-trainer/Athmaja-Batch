@@ -1,10 +1,9 @@
-import { useContext } from "react"
-import { SampleContext } from "../App"
+import { useCounter } from "../context/CounterContext"
 
 const Context = () => {
-    const { counter, setCounter } = useContext(SampleContext)
+    const { counter, setCounter} = useCounter()
     return <div>
-        <p>{counter}</p>
+        {counter}
         <button onClick={() => setCounter(counter + 1)}>Increment</button>
     </div>
 }
