@@ -1,0 +1,4 @@
+1. Create a user list.
+   a. Add a user to the list. (name, email, number, city, state, country, job, company)
+   b. Delete a user from the list.
+   c. Single view of a user. (using react router and context api)
