@@ -5,6 +5,7 @@ import SingleTodo from "./pages/SingleTodo"
 import ProductListing from "./pages/ProductListing"
 import ParentComponent from "./pages/ParentComponent"
 import Context from "./pages/Context"
+import { EffectPage } from "./pages/EffectPage"
 
 const Router = () => {
     return <BrowserRouter>
@@ -17,7 +18,8 @@ const Router = () => {
                     <Route path="view" Component={SingleTodo} />
                 </Route>
                 <Route path="products" Component={ProductListing} />
-                <Route path="/props" Component={ParentComponent} />
+                <Route path="props" Component={ParentComponent} />
+                <Route path="effect" Component={EffectPage} />
             </Route>
             <Route path="*" element={<div><Header /><h1>404 | Page Not Found</h1></div>} />
         </Routes>
