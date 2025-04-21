@@ -6,6 +6,7 @@ import ProductListing from "./pages/ProductListing"
 import ParentComponent from "./pages/ParentComponent"
 import Context from "./pages/Context"
 import { EffectPage } from "./pages/EffectPage"
+import { ApiCalling } from "./pages/ApiCalling"
 
 const Router = () => {
     return <BrowserRouter>
@@ -20,6 +21,7 @@ const Router = () => {
                 <Route path="products" Component={ProductListing} />
                 <Route path="props" Component={ParentComponent} />
                 <Route path="effect" Component={EffectPage} />
+                <Route path="api" Component={ApiCalling} />
             </Route>
             <Route path="*" element={<div><Header /><h1>404 | Page Not Found</h1></div>} />
         </Routes>
