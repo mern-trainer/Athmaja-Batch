@@ -1,0 +1,9 @@
+1. API: https://dummyjson.com/docs/carts
+
+A. Create a cart list.
+   a. Fetch cart from the API.
+   b. List of cart.
+   c. Single view of a cart.
+   d. Add a cart to the list.
+   e. Delete a cart from the list.
+   f. Update a cart from the list. 
