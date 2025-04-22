@@ -36,8 +36,6 @@ export const EffectPage = () => {
 
     // useEffect -> side effects -> API calls, DOM manipulation, etc.
 
-    
-
     return <div>
         <h2>useEffect Hook</h2>
         <div>{counter} - {timer}</div>

@@ -7,6 +7,8 @@ import ParentComponent from "./pages/ParentComponent"
 import Context from "./pages/Context"
 import { EffectPage } from "./pages/EffectPage"
 import { ApiCalling } from "./pages/ApiCalling"
+import { FormHandling } from "./pages/FormHandling"
+import { Formik } from "./pages/Formik"
 
 const Router = () => {
     return <BrowserRouter>
@@ -22,6 +24,8 @@ const Router = () => {
                 <Route path="props" Component={ParentComponent} />
                 <Route path="effect" Component={EffectPage} />
                 <Route path="api" Component={ApiCalling} />
+                <Route path="form" Component={FormHandling} />
+                <Route path="formik" Component={Formik} />
             </Route>
             <Route path="*" element={<div><Header /><h1>404 | Page Not Found</h1></div>} />
         </Routes>
