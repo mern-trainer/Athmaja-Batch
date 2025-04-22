@@ -30,19 +30,25 @@ export const Formik = () => {
         })
     })
 
-    return <div>
-        <form onSubmit={formik.handleSubmit}>
-            <input onChange={formik.handleChange} value={formik.values.name} type="text" name="name" placeholder="Enter Name" />
-            <span>{formik.errors.name}</span>
-            <input onChange={formik.handleChange} value={formik.values.username} type="text" name="username" placeholder="Enter Username" />
-            <span>{formik.errors.username}</span>
-            <input onChange={formik.handleChange} value={formik.values.email} type="text" name="email" placeholder="Enter Email" />
-            <span>{formik.errors.email}</span>
-            <input onChange={formik.handleChange} value={formik.values.password} type="password" name="password" placeholder="Enter Password" />
-            <span>{formik.errors.password}</span>
-            <input onChange={formik.handleChange} value={formik.values.confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Password" />
-            <span>{formik.errors.confirmPassword}</span>
-            <button type="submit">Submit</button>
+    return <div className="vw-100 gap-3 d-flex justify-content-center">
+        <form onSubmit={formik.handleSubmit} className="w-100 d-flex flex-column mt-4" style={{maxWidth: "500px"}}>
+            <input onChange={formik.handleChange} className="w-100 p-2 rounded-0 border border-2" value={formik.values.name} type="text" name="name" placeholder="Enter Name" />
+            <p className="text-danger">{formik.errors.name}</p>
+            <input onChange={formik.handleChange} className="w-100 p-2 rounded-0 border border-2" value={formik.values.username} type="text" name="username" placeholder="Enter Username" />
+            <p className="text-danger">{formik.errors.username}</p>
+            <input onChange={formik.handleChange} className="w-100 p-2 rounded-0 border border-2" value={formik.values.email} type="text" name="email" placeholder="Enter Email" />
+            <p className="text-danger">{formik.errors.email}</p>
+            <input onChange={formik.handleChange} className="w-100 p-2 rounded-0 border border-2" value={formik.values.password} type="password" name="password" placeholder="Enter Password" />
+            <p className="text-danger">{formik.errors.password}</p>
+            <input onChange={formik.handleChange} className="w-100 p-2 rounded-0 border border-2" value={formik.values.confirmPassword} type="password" name="confirmPassword" placeholder="Confirm Password" />
+            <p className="text-danger">{formik.errors.confirmPassword}</p>
+            <button type="submit" className="btn btn-success rounded-0">Submit</button>
         </form>
+        <div className="mt-4">
+            <h3>Form Values</h3>
+            <pre>{JSON.stringify(formik.values, null, 2)}</pre>
+            <h3>Form Errors</h3>
+            <pre>{JSON.stringify(formik.errors, null, 2)}</pre>
+        </div>
     </div>
 }
