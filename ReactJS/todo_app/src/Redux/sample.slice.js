@@ -8,7 +8,7 @@ const sampleSlice = createSlice({
     },
     reducers: {
         toggleName: (state, action) => {
-            console.log(action);
+            state.name = action.payload
         }
     }
 })

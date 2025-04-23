@@ -9,6 +9,7 @@ import { EffectPage } from "./pages/EffectPage"
 import { ApiCalling } from "./pages/ApiCalling"
 import { FormHandling } from "./pages/FormHandling"
 import { Formik } from "./pages/Formik"
+import ReduxPage from "./pages/ReduxPage"
 
 const Router = () => {
     return <BrowserRouter>
@@ -26,6 +27,7 @@ const Router = () => {
                 <Route path="api" Component={ApiCalling} />
                 <Route path="form" Component={FormHandling} />
                 <Route path="formik" Component={Formik} />
+                <Route path="/redux" Component={ReduxPage} />
             </Route>
             <Route path="*" element={<div><Header /><h1>404 | Page Not Found</h1></div>} />
         </Routes>
