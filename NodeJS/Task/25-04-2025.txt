@@ -1,0 +1,9 @@
+1. Accept a number and list of numbers from user and display the frequency of number..
+2. Accept a string and list of strings from user and display the frequency of string that starts with accepted string.
+3. Create an atm machine.
+    a. Should have a deposit, widthdraw and balance function.
+    b. Should have a menu to choose from.
+    c. Should have a function to exit.
+    d. Should display balance amount after each transaction.
+    e. Show insufficient balance message if balance is less than the amount to be withdrawn.
+    d. Show invalid choice message if user enters an invalid choice.
