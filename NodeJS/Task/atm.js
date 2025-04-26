@@ -22,8 +22,7 @@ while (true) {
             console.log("Balance: ", balance);
             break;
         case 4:
-            console.log("Exit");
-            break;
+            process.exit(0)
         default:
             console.log("Invalid Choice");
             break;
