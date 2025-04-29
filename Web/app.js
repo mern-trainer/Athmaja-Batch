@@ -20,14 +20,103 @@ const server = http.createServer() // server object
 
 // todo
 
-
+let todoList = []
 
 server.on("request", (request, response) => {
     const pathWithQuery = request.url;
     const urlComponents = url.parse(pathWithQuery, true)
     const path = urlComponents.pathname;
+    const method = request.method;
     const query = urlComponents.query
-    return response.end(JSON.stringify({name: query.name, password: query.password, path: path}))
+    if (path == "/todo" && method == "GET") {
+        response.writeHead(200, {
+            "content-type": "application/json"
+        })
+        return response.end(JSON.stringify(todoList))
+    }
+    if (path == "/todo" && method == "POST") {
+        const task = query.task
+        if (!task) {
+            response.writeHead(400, {
+                "content-type": "application/json"
+            })
+            return response.end(JSON.stringify({
+                message: "Task is required."
+            }))
+        }
+        const index = todoList.findIndex((item) => item.task.toLowerCase() == task.toLowerCase())
+        if (index > -1) {
+            response.writeHead(409, {
+                "content-type": "application/json"
+            })
+            return response.end(JSON.stringify({
+                message: "Task already exists."
+            }))
+        }
+        const taskObj = {
+            id: crypto.randomUUID(),
+            task: task
+        }
+        todoList.push(taskObj)
+        response.writeHead(201, {
+            "content-type": "application/json"
+        })
+        return response.end(JSON.stringify({
+            message: "Task added successfully."
+        }))
+    }
+
+    if(path == "/todo" && method == "DELETE"){
+        const id = query.id
+        if (!id) {
+            response.writeHead(400, {
+                "content-type": "application/json"
+            })
+            return response.end(JSON.stringify({
+                message: "Id is required."
+            }))
+        }
+        const data = todoList.find((item) => item.id == id)
+        if (!data) {
+            response.writeHead(404, {
+                "content-type": "application/json"
+            })
+            return response.end(JSON.stringify({
+                message: "Task not found."
+            }))
+        }
+        todoList = todoList.filter((item) => item.id != id)
+        response.writeHead(200, {
+            "content-type": "application/json"
+        })
+        return response.end(JSON.stringify({
+            message: "Task deleted successfully."
+        }))
+    }
+
+    if (path == "/todo" && method == "PATCH") {
+        const { id, task } = query
+        if (!id || !task) {
+            response.writeHead(400, {
+                "content-type": "application/json"
+            })
+            return response.end(JSON.stringify({
+                message: "Id and task are required."
+            }))
+        }
+        todoList = todoList.map((item) => {
+            if (item.id == id) {
+                item.task = task
+            }
+            return item
+        })
+        response.writeHead(200, {
+            "content-type": "application/json"
+        })
+        return response.end(JSON.stringify({
+            message: "Task updated successfully."
+        }))
+    }
 })
 
 server.listen(8080, () => {
