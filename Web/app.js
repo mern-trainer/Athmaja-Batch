@@ -1,4 +1,5 @@
 const http = require("http");
+const url = require("url");
 
 const server = http.createServer() // server object
 
@@ -17,21 +18,16 @@ const server = http.createServer() // server object
 // PATCH -> update a resource
 // DELETE -> delete a resource
 
+// todo
+
+
+
 server.on("request", (request, response) => {
-    const pathName = request.url;
-    const method = request.method;
-   
-    if (pathName === "/") {
-        response.writeHead(400, {
-            "content-type": "application/json"
-        })
-        response.write("Hi")
-        response.write("Hello")
-        return response.end();
-    }
-    if (pathName === "/profile") {
-        return response.end("Profile page");
-    }
+    const pathWithQuery = request.url;
+    const urlComponents = url.parse(pathWithQuery, true)
+    const path = urlComponents.pathname;
+    const query = urlComponents.query
+    return response.end(JSON.stringify({name: query.name, password: query.password, path: path}))
 })
 
 server.listen(8080, () => {
