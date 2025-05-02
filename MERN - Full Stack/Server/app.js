@@ -1,11 +1,39 @@
 const express = require("express")
 require("dotenv").config()
+// const morgan = require("morgan")
 
 const app = express()
 
+// app.use(morgan("dev"))
+
+// Middleware -> Middlewares are functions that are executed before the request is handled.
+
 app.use(express.json()) // middleware
 
-// app.get("/:id", (request, response) => {
+// app.use((req, res, next) => {
+//     console.log(req.url);
+//     next()
+// })
+
+app.use((req, res, next) => {
+    const path = req.url
+    const method = req.method
+    const startTime = new Date().getTime() // ms
+    res.on("finish", () => {
+        const endTime = new Date().getTime()
+        const duration = endTime - startTime
+        const statusCode = res.statusCode
+        console.log(`${method} ${path} ${statusCode} - ${duration}ms`);
+    })
+    next()
+})
+
+// application level -> Global middleware -> app.use()
+// Route level -> app.get()/app.post()/app.put()/app.delete()
+
+// Local middleware
+
+// app.get("/:id", middleware, (request, response) => {
 //     // const { q } = request.query
 //     const { id } = request.params
 //     return response.status(200).send({
