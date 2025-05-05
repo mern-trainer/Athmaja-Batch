@@ -1,10 +1,14 @@
 const express = require("express")
 const todoRouter = require("./routes/todo.route")
 const { logger } = require("./middlewares/logger")
+const authRouter = require("./routes/auth.route")
 require("dotenv").config()
+const cors = require("cors")
+//  CORS -> Cross Origin Resource Sharing
 // const morgan = require("morgan")
 
 const app = express()
+app.use(cors())
 
 // app.use(morgan("dev"))
 
@@ -40,6 +44,7 @@ app.use(logger)
 // })
 
 app.use("/todo", todoRouter) 
+app.use("/auth", authRouter)
 
 app.listen(process.env.PORT || 8081, () => {
     console.log("Server is running")

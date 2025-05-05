@@ -6,7 +6,7 @@ const logger = (req, res, next) => {
         const endTime = new Date().getTime()
         const duration = endTime - startTime
         const statusCode = res.statusCode
-        console.log(`${method} ${path} ${statusCode} - ${duration}ms`);
+        console.log(`${method} ${path} ${statusCode} - ${duration} --ms`);
     })
     next()
 }
