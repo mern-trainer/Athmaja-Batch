@@ -1,5 +1,6 @@
-import axios from "axios"
 import { useState } from "react"
+import { api } from "../axios"
+import { cookie } from "../lib/cookie"
 
 export const SignupPage = () => {
 
@@ -9,8 +10,8 @@ export const SignupPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await axios.post("http://localhost:8081/auth", regData)
-        console.log(response.data);
+        const { data } = await api.post("/auth", regData)
+        cookie.set(data.token)
     }
 
     const handleChange = e => {
