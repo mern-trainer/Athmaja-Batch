@@ -1,17 +1,28 @@
 import { useState } from "react"
 import { api } from "../axios"
 import { cookie } from "../lib/cookie"
+import { toast } from "react-toastify"
+import { useNavigate } from "react-router"
 
 export const SignupPage = () => {
 
     const [regData, setRegData] = useState({
         name: "", email: "", password: "", confirmPassword: ""
     })
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const { data } = await api.post("/auth", regData)
-        cookie.set(data.token)
+        try {
+            const { data, status } = await api.post("/auth", regData)
+            if (status == 201) {
+                toast.success("You have successfully signed up")
+                return navigate("/login")
+            }
+            return toast.error(data.message)
+        } catch (error) {
+            return toast.error(error.response?.data.message || error.message || "Something went wrong")  
+        }
     }
 
     const handleChange = e => {

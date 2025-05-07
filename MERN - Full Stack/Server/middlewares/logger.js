@@ -1,7 +1,7 @@
 const logger = (req, res, next) => {
     const path = req.url
     const method = req.method
-    const startTime = new Date().getTime() // ms
+    const startTime = new Date().getTime()
     res.on("finish", () => {
         const endTime = new Date().getTime()
         const duration = endTime - startTime

@@ -15,11 +15,8 @@ const signup = async (request, response) => {
         }
         body.password = await bcrypt.hash(body.password, 10)
         users.push({ ...body, id: crypto.randomUUID() })
-        const token = jwt.sign({ sub: body }, process.env.JWT_KEY, {
-            expiresIn: "3d"
-        })
-        return response.status(200).send({
-            message: "User created successfully", token
+        return response.status(201).send({
+            message: "User created successfully"
         })
     } catch (err) {
         return response.status(500).send({
@@ -28,7 +25,7 @@ const signup = async (request, response) => {
     }
 }
 
-const login = async () => {
+const login = async (request, response) => {
     try {
         const { email, password } = request.query;
         const user = users.find(u => u.email == email)
@@ -43,9 +40,12 @@ const login = async () => {
                 message: "Invalid credentials"
             })
         }
+        const token = jwt.sign({ sub: user }, process.env.JWT_KEY, {
+            expiresIn: "3d"
+        })
         return response.status(200).send({
             message: "User logged in successfully",
-            data: user
+            token
         })
     } catch (err) {
         return response.status(500).send({
@@ -54,8 +54,20 @@ const login = async () => {
     }
 }
 
+const checkUser = async (request, response) => {
+    try {
+        return response.status(200).send({
+            message: "User is valid"
+        })
+    } catch (err) {
+        return response.status(500).send({
+            message: err.message || "Internal server error"
+        })
+    }
+}
 
 module.exports = {
     signup,
-    login
+    login,
+    checkUser
 }
