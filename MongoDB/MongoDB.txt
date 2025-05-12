@@ -1,0 +1,28 @@
+MongoDB
+MongoDB is a popular open-source NoSQL database that stores data in flexible, JSON-like documents. 
+
+Key features include:
+- Document-oriented storage: Data stored in flexible JSON-like documents
+- High scalability: Supports horizontal scaling through sharding
+- High availability: Provides automatic failover and data replication
+- Rich querying: Supports indexing, and aggregation
+- Schema-less: No rigid schema requirements, flexible data model
+- Cross-platform compatibility: Runs on major operating systems
+- Large community and ecosystem: Extensive documentation and tools
+
+// SQL -> Database -> Tables -> Records
+
+
+// NoSQL -> Database -> Collections -> Documents 
+
+
+
+CRUD
+
+1. Create -> insertOne, insertMany
+2. Read -> findOne, find
+
+Comparison 
+
+< > <= >= == != includes not includes, all
+$lt, $gt, $lte, $gte, $eq, $ne, $in, $nin, $all
